@@ -54,9 +54,9 @@ rtUpload (
                             withCredentials([usernamePassword(credentialsId: 'tomcat_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
 
                                 script{
-                        sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$104.42.42.112 \"rm -rf /home/cloud_user/apps/tomcat/webapps/restro*\""
+                        sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@104.42.42.112 \"rm -rf /home/cloud_user/apps/tomcat/webapps/restro*\""
                         
-                        sh "sshpass -p '$USERPASS' scp -o StrictHostKeychecking=no target/restro.war $USERNAME@$104.42.42.112:/home/cloud_user/apps/tomcat/webapps"
+                        sh "sshpass -p '$USERPASS' scp -o StrictHostKeychecking=no target/restro.war $USERNAME@104.42.42.112:/home/cloud_user/apps/tomcat/webapps"
                                 }
                                 }
         }
