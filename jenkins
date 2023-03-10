@@ -8,8 +8,15 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=temp'
+                    sh 'mvn clean package sonar:sonar'
                 }
+            }
+        }
+
+        stage('deploy war file'){
+            steps{
+                sh 'rm -rf /opt/tomcat/webapps/restro*'
+                sh 'cp target/restro.war /opt/tomcat/webapps/'
             }
         }
     }
