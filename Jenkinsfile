@@ -7,9 +7,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'mvn clean install package'
-                }
-                        
-                        
+            }                    
             }
 
         stage('upload artifact') {
