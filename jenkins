@@ -15,9 +15,8 @@ pipeline {
 
         stage('deploy war file'){
             steps{
-                sh 'whoami'
-                sh 'rm -rf /opt/tomcat/webapps/restro*'
-                sh 'cp target/restro.war /opt/tomcat/webapps/'
+                sh 'sudo rm -rf /opt/tomcat/webapps/restro*'
+                sh 'sudo cp target/restro.war /opt/tomcat/webapps/'
             }
         }
     }
